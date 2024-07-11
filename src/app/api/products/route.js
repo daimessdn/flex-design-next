@@ -1,8 +1,8 @@
 const productsData = [
   {
     id: "1720682297790",
-    name: "Men's watch",
-    description: "Stylish men's watch for better lifestyle.",
+    name: "Timeless flex",
+    description: "Special watch, wearable all time",
     link: {
       label: "Buy now!",
       href: "https://www.amazon.com",
