@@ -4,9 +4,9 @@ import Product from "@/components/Product";
 import { ligaSans } from "@/config/fonts.config";
 
 const getProducts = async () => {
-  const response = await fetch("http://localhost:3000/api/products").then(
-    (res) => res.json()
-  );
+  const response = await fetch("http://localhost:3000/api/products", {
+    cache: "no-store",
+  }).then((res) => res.json());
 
   return response.data;
 };
@@ -18,7 +18,7 @@ export default async function ProductSection() {
     <section className="py-8">
       <Container>
         <h1 className={ligaSans.className + " text-[2rem] mb-4"}>
-          Recommended Products
+          This week flex!
         </h1>
 
         <div className="grid grid-cols-2 gap-3">
