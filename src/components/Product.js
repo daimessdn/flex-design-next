@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 import { ligaSans } from "@/config/fonts.config";
@@ -6,7 +5,9 @@ import { ligaSans } from "@/config/fonts.config";
 export default function Product({ ...props }) {
   return (
     <div
-      className={"bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col"}
+      className={
+        "bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between"
+      }
     >
       <h2 className={ligaSans.className + " text-[1.5rem] mb-2"}>
         {props.name}

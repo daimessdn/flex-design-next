@@ -44,6 +44,15 @@ export default function Attribution() {
               </a>{" "}
               on Freepik
             </li>
+
+            <li>
+              <a
+                href="https://www.pikpng.com/pngvi/mobhow_men-fashion-model-png-clipart/"
+                target="_blank"
+              >
+                Men Fashion Model Png Clipart @pikpng.com
+              </a>
+            </li>
           </ul>
         </Container>
       </section>

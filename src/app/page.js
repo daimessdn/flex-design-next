@@ -10,6 +10,7 @@ import Navbar from "../layouts/Navbar";
 import ProductSection from "@/sections/ProductSection";
 
 import { ligaSans } from "@/config/fonts.config";
+import HomeCategorySection from "@/sections/HomeCategorySection";
 
 export default function Home() {
   return (
@@ -39,6 +40,8 @@ export default function Home() {
       </section>
 
       <ProductSection />
+
+      <HomeCategorySection />
 
       <Footer />
     </>
