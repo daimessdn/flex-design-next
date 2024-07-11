@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-import { ligaSans } from "@/app/layout";
+import Footer from "@/layouts/Footer";
+import Navbar from "@/layouts/Navbar";
 
-import Footer from "@/app/layouts/Footer";
-import Navbar from "@/app/layouts/Navbar";
+import Container from "@/components/Container";
+import Row from "@/components/Row";
+import Column from "@/components/Column";
 
-import Container from "@/app/components/Container";
-import Row from "@/app/components/Row";
-import Column from "@/app/components/Column";
+import { ligaSans } from "@/config/fonts.config";
 
 export default function Attribution() {
   return (
