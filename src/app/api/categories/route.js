@@ -15,6 +15,14 @@ const categoriesData = [
     },
     imageUrl: "/wallet.png",
   },
+  {
+    id: "1720742818925",
+    name: "Uppers",
+    link: {
+      href: "https://www.amazon.com",
+    },
+    imageUrl: "/tshirt.png",
+  },
 ];
 
 export async function GET(request) {
