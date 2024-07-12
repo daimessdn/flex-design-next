@@ -7,7 +7,7 @@ export const productsData = [
     category: "watches",
     link: {
       label: "Buy now!",
-      href: "https://www.amazon.com",
+      href: "/products/1720682297790",
     },
     imageUrl: "/watch2.png",
   },
@@ -19,7 +19,7 @@ export const productsData = [
     category: "wallets",
     link: {
       label: "Take a look!",
-      href: "https://www.amazon.com",
+      href: "/products/1720682306323",
     },
     imageUrl: "/wallet.png",
   },
@@ -31,7 +31,7 @@ export const productsData = [
     category: "uppers",
     link: {
       label: "Purchase now!",
-      href: "https://www.amazon.com",
+      href: "/products/1720771448501",
     },
     imageUrl: "/tshirt2.png",
   },
@@ -43,7 +43,7 @@ export const productsData = [
     category: "uppers",
     link: {
       label: "Take a look!",
-      href: "https://www.amazon.com",
+      href: "/products/1720742925135",
     },
     imageUrl: "/tshirt.png",
   },
@@ -74,8 +74,6 @@ export async function GET(request) {
       });
     }
   } catch (error) {
-    // console.log("ini error", error);
-
     return Response.json({
       success: false,
       code: 500,
