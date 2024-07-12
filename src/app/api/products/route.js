@@ -24,7 +24,7 @@ export const productsData = [
   {
     id: "1720742925135",
     name: "PREMIO Plain T-shirt",
-    description: "Flex wallet on your pocket",
+    description: "Simple, casual, professional.",
     price: 10.3,
     link: {
       label: "Take a look!",

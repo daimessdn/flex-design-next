@@ -7,7 +7,7 @@ import Column from "../components/Column";
 
 import Footer from "../layouts/Footer";
 import Navbar from "../layouts/Navbar";
-import ProductSection from "@/sections/ProductSection";
+import HomeProductSection from "@/sections/HomeProductSection";
 
 import { ligaSans } from "@/config/fonts.config";
 import HomeCategorySection from "@/sections/HomeCategorySection";
@@ -40,7 +40,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <ProductSection />
+      <HomeProductSection />
 
       <HomeCategorySection />
 

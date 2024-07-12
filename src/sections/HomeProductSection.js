@@ -11,7 +11,7 @@ const getProducts = async () => {
   return response.data;
 };
 
-export default async function ProductSection() {
+export default async function HomeProductSection() {
   const products = await getProducts();
 
   return (
