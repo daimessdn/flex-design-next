@@ -24,6 +24,18 @@ export const productsData = [
     imageUrl: "/wallet.png",
   },
   {
+    id: "1720771448501",
+    name: "DARE Vintage T-shirt",
+    description: "Express yourself to be dare.",
+    price: 12.9,
+    category: "uppers",
+    link: {
+      label: "Purchase now!",
+      href: "https://www.amazon.com",
+    },
+    imageUrl: "/tshirt2.png",
+  },
+  {
     id: "1720742925135",
     name: "PREMIO Plain T-shirt",
     description: "Simple, casual, professional.",
