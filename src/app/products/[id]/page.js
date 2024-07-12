@@ -1,8 +1,4 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 
 import Container from "@/components/Container";
 import Row from "@/components/Row";
@@ -13,12 +9,14 @@ import Navbar from "@/layouts/Navbar";
 
 import { ligaSans } from "@/config/fonts.config";
 import ProductDetailSection from "@/sections/ProductDetailSection";
+import WhiteArrowLeftButton from "@/assets/svg/WhiteArrowLeftButton";
+import { getProductsById } from "@/functions/products.functions";
 
-export default function Home({ searchParams }) {
-  const category = searchParams.category;
+export default async function Home({ params, searchParams }) {
+  console.log("detail product", params, searchParams);
 
-  const params = useParams;
-  console.log("detail product", params);
+  const { id } = params;
+  const product = await getProductsById(id);
 
   return (
     <>
@@ -28,13 +26,17 @@ export default function Home({ searchParams }) {
         <Container>
           <Row>
             <Column className={"justify-center gap-2"}>
-              <h1 className={ligaSans.className + " text-[2rem]"}>Products</h1>
+              <Link href={"/products"}>
+                <h1 className={ligaSans.className + " text-[2rem]"}>
+                  <WhiteArrowLeftButton width={48} />
+                </h1>
+              </Link>
             </Column>
           </Row>
         </Container>
       </section>
 
-      <ProductDetailSection product={{ name: "Ini Kaos" }} />
+      <ProductDetailSection product={product} />
 
       <div className="h-[15rem] pb-20 background-bottom-1 grayscale"></div>
 
