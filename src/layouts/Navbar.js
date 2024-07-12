@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import Row from "@/components/Row";
 
 import { ligaSans } from "@/config/fonts.config";
+import Link from "next/link";
 
 export default function Navbar(...props) {
   return (
@@ -14,15 +15,15 @@ export default function Navbar(...props) {
 
           <ul className="flex flex-row gap-[2rem] ms-auto">
             <li className="px-2 py-4">
-              <a className="no-underline" href="https://google.com">
+              <Link className="no-underline" href="/">
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="px-2 py-4">
-              <a className="no-underline" href="https://google.com">
+              <Link className="no-underline" href="/products">
                 Products
-              </a>
+              </Link>
             </li>
 
             <li className="px-2 py-4">

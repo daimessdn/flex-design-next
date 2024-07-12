@@ -14,11 +14,11 @@ export default function Attribution() {
     <>
       <Navbar />
 
-      <section className="bg-primary text-white py-4">
+      <section className="bg-primary text-white py-8">
         <Container>
           <Row>
             <Column className={"justify-center gap-2"}>
-              <h1 className={ligaSans.className + " text-[3rem]"}>
+              <h1 className={ligaSans.className + " text-[2rem]"}>
                 Attribution
               </h1>
             </Column>
@@ -26,7 +26,7 @@ export default function Attribution() {
         </Container>
       </section>
 
-      <section className="py-4">
+      <section className="py-4 min-h-screen">
         <Container>
           <h1 className={ligaSans.className + " text-[2rem] mb-4"}>Design</h1>
 

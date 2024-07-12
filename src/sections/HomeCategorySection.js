@@ -4,13 +4,7 @@ import Container from "@/components/Container";
 
 import { ligaSans } from "@/config/fonts.config";
 
-const getCategories = async () => {
-  const response = await fetch("http://localhost:3000/api/categories", {
-    cache: "no-store",
-  }).then((res) => res.json());
-
-  return response.data;
-};
+import { getCategories } from "@/functions/categories.functions";
 
 export default async function HomeCategorySection() {
   const products = await getCategories();

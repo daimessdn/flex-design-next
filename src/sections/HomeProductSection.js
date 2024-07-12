@@ -3,13 +3,7 @@ import Product from "@/components/Product";
 
 import { ligaSans } from "@/config/fonts.config";
 
-const getProducts = async () => {
-  const response = await fetch("http://localhost:3000/api/products", {
-    cache: "no-store",
-  }).then((res) => res.json());
-
-  return response.data;
-};
+import { getProducts } from "@/functions/products.functions";
 
 export default async function HomeProductSection() {
   const products = await getProducts();
