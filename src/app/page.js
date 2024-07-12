@@ -31,7 +31,7 @@ export default function Home() {
               <Image
                 className="pointer-events-none select-none"
                 src={"/man-top.png"}
-                alt="Man with t-shirt facing behind"
+                alt="Stylish man"
                 width={600}
                 height={400}
               />

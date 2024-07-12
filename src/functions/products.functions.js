@@ -5,3 +5,16 @@ export const getProducts = async () => {
 
   return response.data;
 };
+
+export const getProductsByCategory = async (category) => {
+  const response = await fetch(
+    `http://localhost:3000/api/products?category=${category}`,
+    {
+      cache: "no-store",
+    }
+  ).then((res) => res.json());
+
+  console.log("dapet data kategori", response);
+
+  return response.data;
+};

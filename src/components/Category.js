@@ -14,7 +14,7 @@ export default function Category({ ...props }) {
         <Image
           className="self-center"
           src={props.imageUrl}
-          alt="men's watch"
+          alt={props.name}
           width={400}
           height={400}
         />

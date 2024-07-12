@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import Container from "@/components/Container";
@@ -8,12 +9,21 @@ import Product from "@/components/Product";
 
 import { ligaSans } from "@/config/fonts.config";
 
-import { getProducts } from "@/functions/products.functions";
+import {
+  getProducts,
+  getProductsByCategory,
+} from "@/functions/products.functions";
 import { getCategories } from "@/functions/categories.functions";
 
-export default async function ProductSection() {
-  const products = await getProducts();
-  const categories = await getCategories();
+export default async function ProductSection({ category }) {
+  let products;
+  let categories = await getCategories();
+
+  if (category) {
+    products = await getProductsByCategory(category);
+  } else {
+    products = await getProducts();
+  }
 
   return (
     <section className="py-8">
@@ -28,7 +38,11 @@ export default async function ProductSection() {
 
         <Row className="gap-3 mb-8">
           {categories.map((category) => (
-            <button className="border-0 flex flex-row items-center gap-2 bg-primary shadow-sm rounded-sm text-white px-3 py-2">
+            <Link
+              key={category.id}
+              href={`/products?category=${category.name}`}
+              className="border-0 flex flex-row items-center gap-2 bg-primary shadow-sm rounded-sm text-white px-3 py-2"
+            >
               <Image
                 className="self-center pointer-events-none select-none"
                 src={category.imageUrl}
@@ -40,7 +54,7 @@ export default async function ProductSection() {
               <span className={ligaSans.className + " text-[1.5rem]"}>
                 {category.name}
               </span>
-            </button>
+            </Link>
           ))}
         </Row>
 
