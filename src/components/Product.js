@@ -15,7 +15,7 @@ export default function Product({ ...props }) {
       <Image
         className="self-center pointer-events-none select-none"
         src={props.imageUrl}
-        alt="men's watch"
+        alt={props.description}
         width={400}
         height={400}
       />

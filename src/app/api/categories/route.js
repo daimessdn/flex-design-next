@@ -1,7 +1,7 @@
 export const categoriesData = [
   {
     id: "1720692069066",
-    name: "Watch",
+    name: "Watches",
     link: {
       href: "https://www.amazon.com",
     },
@@ -9,7 +9,7 @@ export const categoriesData = [
   },
   {
     id: "1720692080767",
-    name: "Wallet",
+    name: "Wallets",
     link: {
       href: "https://www.amazon.com",
     },
