@@ -29,6 +29,7 @@ export default function Home() {
 
             <Column>
               <Image
+                className="pointer-events-none select-none"
                 src={"/man-top.png"}
                 alt="Man with t-shirt facing behind"
                 width={600}

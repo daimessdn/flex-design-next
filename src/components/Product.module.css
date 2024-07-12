@@ -1,0 +1,23 @@
+.product {
+    @apply bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between;
+}
+
+.product img {
+    @apply scale-100 transition duration-300 ease-in-out opacity-95;
+}
+
+.product:hover img {
+    @apply scale-[110%] drop-shadow-lg opacity-100;
+}
+
+.product .link {
+    @apply flex flex-row gap-2 items-center text-[1.25rem];
+}
+
+.product .arrow {
+    @apply translate-x-0 transition duration-300 ease-in-out;
+}
+
+.product:hover .arrow {
+    @apply translate-x-2;
+}

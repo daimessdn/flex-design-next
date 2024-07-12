@@ -1,15 +1,13 @@
 import Image from "next/image";
 
+import styles from "./Category.module.css";
+
 import { ligaSans } from "@/config/fonts.config";
 
 export default function Category({ ...props }) {
   return (
     <a href={props.link.href}>
-      <div
-        className={
-          "bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between"
-        }
-      >
+      <div className={styles.category}>
         <h2 className={ligaSans.className + " text-[1.5rem] mb-2"}>
           {props.name}
         </h2>

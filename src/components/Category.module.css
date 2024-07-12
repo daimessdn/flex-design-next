@@ -1,0 +1,15 @@
+.category {
+    @apply bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between transition duration-300 ease-in-out;
+}
+
+.category:hover {
+    @apply bg-primary text-white shadow-lg;
+}
+
+.category img {
+    @apply scale-100 transition duration-300 ease-in-out opacity-95;
+}
+
+.category:hover img {
+    @apply scale-[110%] drop-shadow-lg opacity-100;
+}
