@@ -20,7 +20,11 @@ export default async function ProductSection({ category }) {
   let categories = await getCategories();
 
   if (category) {
-    products = await getProductsByCategory(category);
+    if (category == "All") {
+      products = await getProducts();
+    } else {
+      products = await getProductsByCategory(category);
+    }
   } else {
     products = await getProducts();
   }

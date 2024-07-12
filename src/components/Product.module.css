@@ -1,9 +1,9 @@
 .product {
-    @apply bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between;
+    @apply bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between h-[500px] max-h-[500px];
 }
 
 .product img {
-    @apply scale-100 transition duration-300 ease-in-out opacity-95;
+    @apply scale-100 transition duration-300 ease-in-out opacity-80;
 }
 
 .product:hover img {
