@@ -14,8 +14,6 @@ export const getProductsByCategory = async (category) => {
     }
   ).then((res) => res.json());
 
-  console.log("dapet data kategori", response);
-
   return response.data;
 };
 
@@ -23,8 +21,6 @@ export const getProductsById = async (id) => {
   const response = await fetch(`http://localhost:3000/api/products/${id}`, {
     cache: "no-store",
   }).then((res) => res.json());
-
-  console.log("dapet data id", response);
 
   return response.data;
 };

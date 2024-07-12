@@ -7,6 +7,10 @@ export async function GET(request, { params }) {
     const { id } = params;
     const product = productsData.find((p) => p.id == id);
 
+    if (!product) {
+      throw new Error("Item not found");
+    }
+
     return NextResponse.json({
       success: true,
       code: 200,

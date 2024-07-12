@@ -8,8 +8,11 @@ import Footer from "@/layouts/Footer";
 import Navbar from "@/layouts/Navbar";
 
 import { ligaSans } from "@/config/fonts.config";
+
 import ProductDetailSection from "@/sections/ProductDetailSection";
+
 import WhiteArrowLeftButton from "@/assets/svg/WhiteArrowLeftButton";
+
 import { getProductsById } from "@/functions/products.functions";
 
 export default async function Home({ params, searchParams }) {
