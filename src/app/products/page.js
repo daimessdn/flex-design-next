@@ -30,6 +30,8 @@ export default function Home({ searchParams }) {
 
       <ProductSection category={category} />
 
+      <div className="h-[15rem] pb-20 background-bottom-1 grayscale"></div>
+
       <Footer />
     </>
   );

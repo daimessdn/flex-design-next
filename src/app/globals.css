@@ -25,3 +25,12 @@ body {
     text-wrap: balance;
   }
 }
+
+.background-bottom-1 {
+  background-image: url("../../public/textile-rain-fleece-warm-white-removebg-preview.png");
+  background-size: 30%;
+  background-position: calc(100% + 3rem) calc(100% + 13rem);
+  background-repeat: no-repeat;
+
+  backdrop-filter: grayscale(1);
+}

@@ -40,7 +40,7 @@ export default async function ProductSection({ category }) {
           </Column>
         </Row>
 
-        <Row className="gap-3 mb-8">
+        <Row className="gap-4 mb-8">
           {categories.map((category) => (
             <Link
               key={category.id}
@@ -55,7 +55,7 @@ export default async function ProductSection({ category }) {
                 height={64}
               />
 
-              <span className={ligaSans.className + " text-[1.5rem]"}>
+              <span className={ligaSans.className + " text-[1.2rem]"}>
                 {category.name}
               </span>
             </Link>
