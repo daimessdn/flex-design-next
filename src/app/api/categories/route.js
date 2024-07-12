@@ -1,5 +1,13 @@
 export const categoriesData = [
   {
+    id: "1720773066377",
+    name: "All",
+    link: {
+      href: "https://www.amazon.com",
+    },
+    imageUrl: "/all.png",
+  },
+  {
     id: "1720692069066",
     name: "Watches",
     link: {
