@@ -1,4 +1,4 @@
-const categoriesData = [
+export const categoriesData = [
   {
     id: "1720692069066",
     name: "Watch",
