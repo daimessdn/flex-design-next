@@ -43,7 +43,7 @@ export default async function ArticleDetailPage({ params, searchParams }) {
         <Container>
           <Row>
             <Column>
-              <h2 className={geist.className + " text-2xl mt-4"}>
+              <h2 className={geist.className + " text-2xl mt-4 font-semibold"}>
                 {article.title}
               </h2>
 

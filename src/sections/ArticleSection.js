@@ -12,7 +12,7 @@ export default async function ArticleSection() {
   const articles = await getArticles();
 
   return (
-    <section className="py-8">
+    <section className="py-8 min-h-[60vh]">
       <Container>
         <Row>
           <Column>
