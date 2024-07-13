@@ -42,8 +42,6 @@ export async function GET(request) {
       data: categoriesData,
     });
   } catch (error) {
-    console.log("ini error", error);
-
     return Response.json({
       success: false,
       code: 500,

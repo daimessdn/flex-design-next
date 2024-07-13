@@ -12,6 +12,24 @@ body {
   height: 100%;
 }
 
+.article {
+  @apply py-8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-4 mt-4;
+  font-weight: bold;
+}
+
+.article p {
+  @apply mb-4 leading-6;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

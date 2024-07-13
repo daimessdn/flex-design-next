@@ -27,6 +27,12 @@ export default function Navbar(...props) {
             </li>
 
             <li className="px-2 py-4">
+              <Link className="no-underline" href="/articles">
+                Articles
+              </Link>
+            </li>
+
+            <li className="px-2 py-4">
               <a className="no-underline" href="https://google.com">
                 Contact
               </a>
