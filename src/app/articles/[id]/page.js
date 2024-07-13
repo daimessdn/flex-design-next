@@ -16,8 +16,6 @@ import WhiteArrowLeftButton from "@/assets/svg/WhiteArrowLeftButton";
 import { getArticleById } from "@/functions/articles.function";
 
 export default async function ArticleDetailPage({ params, searchParams }) {
-  console.log("detail article", params, searchParams);
-
   const { id } = params;
   const article = await getArticleById(id);
 
