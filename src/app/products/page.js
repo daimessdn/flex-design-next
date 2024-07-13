@@ -11,7 +11,7 @@ import Navbar from "@/layouts/Navbar";
 import { ligaSans } from "@/config/fonts.config";
 import ProductSection from "@/sections/ProductSection";
 
-export default function Home({ searchParams }) {
+export default function ProductPage({ searchParams }) {
   const category = searchParams.category;
 
   return (
