@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { ligaSans } from "@/config/fonts.config";
 
 export default function LoginSection() {
+  const router = useRouter();
+
   const [auth, setAuth] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({
@@ -42,6 +45,10 @@ export default function LoginSection() {
         : `Error while trying to login: ${loginResponse.message}`
     );
     setIsLoading(false);
+
+    if (loginResponse.success) {
+      router.push("/flexion/dashboard");
+    }
   };
 
   return (
