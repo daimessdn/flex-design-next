@@ -15,14 +15,20 @@ export default function LoginSection() {
     message: "",
   });
 
+  let isMessage;
+
   const handleAuthChange = (label, value) => {
     setAuth({ ...auth, [label]: value });
   };
 
   const handleMessage = (message) => {
+    if (isMessage) {
+      clearTimeout(isMessage);
+    }
+
     setMessage({ isOpen: true, message });
 
-    setTimeout(() => {
+    isMessage = setTimeout(() => {
       setMessage({ isOpen: false, message });
     }, 4000);
   };
