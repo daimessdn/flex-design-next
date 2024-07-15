@@ -3,98 +3,93 @@
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
-import { BiDollar } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa";
 
 import { ligaSans } from "@/config/fonts.config";
 
 import Column from "@/components/Column";
 
-export default function ProductDashboard({ addProduct }) {
-  const [products, setProducts] = useState([]);
+export default function ArticleDashboard({ addArticle }) {
+  const [articles, setArticles] = useState([]);
 
-  const [productUpdated, setProductUpdated] = useState({});
-  const [productDeleted, setProductDeleted] = useState({});
+  const [articleUpdated, setArticleUpdated] = useState({});
+  const [articleDeleted, setArticleDeleted] = useState({});
 
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("http://localhost:3000/api/articles")
       .then((res) => res.json())
-      .then((res) => setProducts(res.data));
+      .then((res) => setArticles(res.data));
   }, []);
 
   const handleEditPopup = (id) => {
-    const productBeingUpdated = products.find((p) => p.id === id);
-    setProductUpdated(productBeingUpdated);
+    const articleBeingUpdated = articles.find((a) => a.id === id);
+    setArticleUpdated(articleBeingUpdated);
     setIsEditPopupOpen(true);
   };
 
   const handleDeletePopup = (id) => {
-    const productBeingDeleted = products.find((p) => p.id === id);
-    setProductDeleted(productBeingDeleted);
+    const articleBeingDeleted = articles.find((a) => a.id === id);
+    setArticleDeleted(articleBeingDeleted);
     setIsDeletePopupOpen(true);
   };
 
   return (
     <>
       <Column className="p-4">
-        <h1 className={ligaSans.className + " text-3xl mb-4"}>Flex Products</h1>
+        <h1 className={ligaSans.className + " text-3xl mb-4"}>Flex articles</h1>
 
         <button
           className="uppercase px-4 py-2 rounded-full bg-primary text-white flex items-center gap-2 w-fit text-sm mb-4"
-          onClick={addProduct}
+          onClick={addArticle}
         >
           <FaPlus size={20} />
-          Add Product
+          Add Article
         </button>
 
         <div className="rounded-lg overflow-hidden w-full">
           <table className="w-full">
             <thead>
               <tr className="bg-green-100">
-                <th className="p-2 w-1/4">Name</th>
-                <th className="p-2 w-1/2">Description</th>
-                <th>Price</th>
+                <th className="w-1/3 p-2">Title</th>
+                <th className="w-1/5 p-2">Author</th>
+                <th className="w-1/5 p-2">Published Date</th>
                 <th></th>
               </tr>
             </thead>
 
             <tbody>
-              {products.map((p) => (
-                <tr key={p.id} className="odd:bg-green-50 even:bg-green-100">
-                  <td className="p-2">
+              {articles.map((a) => (
+                <tr key={a.id} className="odd:bg-green-50 even:bg-green-100">
+                  <td className="w-1/3 p-2">
                     <div className="flex flex-row gap-2 items-center">
-                      <Image
-                        src={p.imageUrl}
-                        alt={p.description}
-                        width={64}
-                        height={64}
-                      />
-
-                      {p.name}
+                      {a.title}
                     </div>
                   </td>
 
-                  <td className="p-2 w-1/2">{p.description}</td>
+                  <td className="w-1/5 p-2">{a.author}</td>
 
-                  <td className="p-2 w-1/8">${p.price}</td>
+                  <td className="w-1/6 p-2">
+                    {new Date(a.publishedDate).toDateString()}
+                  </td>
 
                   <td className="p-2">
                     <div className="flex flex-row gap-2 items-center">
                       <button
                         className="uppercase px-4 py-2 rounded-full bg-primary text-white inline-block text-sm flex items-center gap-2"
                         onClick={() => {
-                          handleEditPopup(p.id);
+                          handleEditPopup(a.id);
                         }}
                       >
                         Edit
                       </button>
+
                       <button
                         className="uppercase px-4 py-2 rounded-full bg-primary text-white inline-block text-sm flex items-center gap-2"
                         onClick={() => {
-                          handleDeletePopup(p.id);
+                          handleDeletePopup(a.id);
                         }}
                       >
                         Delete
@@ -120,107 +115,86 @@ export default function ProductDashboard({ addProduct }) {
             (isEditPopupOpen ? "opacity-100" : "opacity-0")
           }
         >
-          <h2 className={ligaSans.className + " text-3xl"}>Edit Product</h2>
+          <h2 className={ligaSans.className + " text-3xl"}>Edit Article</h2>
 
           <blockquote className="bg-primary text-white p-2 shadow-md rounded-md mt-4">
-            You will edit "{productUpdated.name || ""}".
+            You will edit "{articleUpdated.title || ""}".
           </blockquote>
 
           <form>
             <div className="flex flex-col mt-4 gap-2">
-              <label className="text-gray-100" htmlFor="name">
-                Product name
+              <label className="text-gray-100" htmlFor="title">
+                Article title
               </label>
 
               <input
                 className="border border-gray-100 rounded-md p-2"
                 type="text"
-                id="name"
-                name="name"
-                value={productUpdated.name}
+                id="title"
+                name="title"
+                value={articleUpdated.title}
                 onChange={(e) => {
-                  setProductUpdated({
-                    ...productUpdated,
-                    name: e.target.value,
+                  setArticleUpdated({
+                    ...articleUpdated,
+                    title: e.target.value,
                   });
                 }}
-                placeholder="Input product name"
+                placeholder="Input category title"
                 required
               />
             </div>
 
             <div className="flex flex-col mt-4 gap-2">
-              <label className="text-gray-100" htmlFor="description">
-                Product description
-              </label>
-
-              <textarea
-                className="border border-gray-100 rounded-md p-2 resize-none"
-                id="description"
-                name="description"
-                value={productUpdated.description}
-                onChange={(e) => {
-                  setProductUpdated({
-                    ...productUpdated,
-                    description: e.target.value,
-                  });
-                }}
-                rows={4}
-                placeholder="Input product description"
-              ></textarea>
-            </div>
-
-            <div className="flex flex-col mt-4 gap-2">
-              <label className="text-gray-100" htmlFor="price">
-                Product price
-              </label>
-
-              <div className="flex items-center">
-                <label
-                  htmlFor="price"
-                  className="border border-gray bg-gray text-white p-2 rounded-l-md"
-                >
-                  <BiDollar size={24} />
-                </label>
-
-                <input
-                  className="border border-gray-100 rounded-r-md p-2"
-                  type="number"
-                  placeholder="0.00"
-                  name="price"
-                  value={productUpdated.price}
-                  onChange={(e) => {
-                    setProductUpdated({
-                      ...productUpdated,
-                      price: e.target.value,
-                    });
-                  }}
-                  id="price"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col mt-4 gap-2">
-              <label className="text-gray-100" htmlFor="image">
-                Product image
+              <label className="text-gray-100" htmlFor="author">
+                Article author
               </label>
 
               <input
                 className="border border-gray-100 rounded-md p-2"
-                placeholder="Upload your product image"
-                type="file"
-                id="image"
-                name="image"
+                type="text"
+                id="author"
+                author="author"
+                value={articleUpdated.author}
+                onChange={(e) => {
+                  setArticleUpdated({
+                    ...articleUpdated,
+                    author: e.target.value,
+                  });
+                }}
+                placeholder="Input category author"
+                required
               />
+            </div>
+
+            <div className="flex flex-col mt-4 gap-2">
+              <label className="text-gray-100" htmlFor="body">
+                Article body
+              </label>
+
+              <textarea
+                className="border border-gray-100 rounded-md p-2"
+                type="text"
+                rows={4}
+                id="body"
+                name="body"
+                value={articleUpdated.body}
+                onChange={(e) => {
+                  setArticleUpdated({
+                    ...articleUpdated,
+                    body: e.target.value,
+                  });
+                }}
+                placeholder="Input article body"
+                required
+              ></textarea>
             </div>
 
             <div className="flex flex-row gap-2 items-center">
               <button
                 className="mt-4 px-4 py-2 rounded-full shadow-md bg-primary text-white text-sm block flex items-center gap-2"
-                href="/flexion/products/edit"
+                href="/flexion/articles/edit"
               >
-                Edit product
+                Edit Article
               </button>
 
               <button
@@ -228,7 +202,7 @@ export default function ProductDashboard({ addProduct }) {
                 onClick={(e) => {
                   e.preventDefault();
                   setIsEditPopupOpen(false);
-                  setProductUpdated({});
+                  setArticleUpdated({});
                 }}
               >
                 Cancel
@@ -250,18 +224,18 @@ export default function ProductDashboard({ addProduct }) {
             (isDeletePopupOpen ? "opacity-100" : "opacity-0")
           }
         >
-          <h2 className={ligaSans.className + " text-3xl"}>Delete Product</h2>
+          <h2 className={ligaSans.className + " text-3xl"}>Delete Article</h2>
 
           <p className="mt-4">
-            Are you sure want to delete "{productDeleted.name || ""}".
+            Are you sure want to delete "{articleDeleted.title || ""}".
           </p>
 
           <div className="flex flex-row gap-2 items-center">
             <button
               className="mt-4 px-4 py-2 rounded-full shadow-md bg-primary text-white text-sm block flex items-center gap-2"
-              href="/flexion/products/delete"
+              href="/flexion/articles/delete"
             >
-              Delete product
+              Delete Article
             </button>
 
             <button
@@ -269,7 +243,7 @@ export default function ProductDashboard({ addProduct }) {
               onClick={(e) => {
                 e.preventDefault();
                 setIsDeletePopupOpen(false);
-                setProductDeleted({});
+                setArticleDeleted({});
               }}
             >
               Cancel

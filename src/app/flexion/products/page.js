@@ -107,14 +107,14 @@ export default function ProductPage() {
 
               <div className="flex flex-row gap-2 items-center">
                 <button
-                  className="mt-4 px-4 py-2 rounded-full shadow-md bg-secondary text-white text-sm block flex items-center gap-2"
+                  className="mt-4 px-4 py-2 rounded-full shadow-md bg-primary text-white text-sm block flex items-center gap-2"
                   href="/flexion/products/edit"
                 >
                   Add product
                 </button>
 
                 <button
-                  className="mt-4 px-4 py-2 rounded-full shadow-md bg-white text-secondary text-sm block flex items-center gap-2"
+                  className="mt-4 px-4 py-2 rounded-full shadow-md bg-white text-primary text-sm block flex items-center gap-2"
                   onClick={() => {
                     setIsCreatePopupOpen(false);
                   }}
