@@ -1,13 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
+import "react-quill/dist/quill.snow.css";
 
 import { ligaSans } from "@/config/fonts.config";
+import { quillFormats, quillModules } from "@/config/quill.config";
 
 import Row from "@/components/Row";
 
 import AdminSidebar from "@/components/flexion/AdminSidebar";
 import ArticleDashboard from "@/sections/flexion/articles/ArticleDashboard";
+
+const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function ProductPage() {
   const [isCreatePopupOpen, setIsCreatePopupOpen] = useState(false);
@@ -68,20 +74,14 @@ export default function ProductPage() {
                 />
               </div>
 
-              <div className="flex flex-col mt-4 gap-2">
-                <label className="text-gray-100" htmlFor="body">
-                  Article body
-                </label>
+              <div className="flex flex-col mt-4">
+                <span className="text-gray-100">Article body</span>
 
-                <textarea
-                  className="border border-gray-100 rounded-md p-2"
-                  type="text"
-                  rows={4}
-                  id="body"
-                  name="body"
-                  placeholder="Input article body"
-                  required
-                ></textarea>
+                <QuillEditor
+                  className="w-full h-[250px] mt-2 bg-white border border-black overflow-auto"
+                  modules={quillModules}
+                  formats={quillFormats}
+                />
               </div>
 
               <div className="flex flex-row gap-2 items-center">

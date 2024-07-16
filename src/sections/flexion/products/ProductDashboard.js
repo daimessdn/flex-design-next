@@ -1,14 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+import "react-quill/dist/quill.snow.css";
 
 import { useEffect, useState } from "react";
 import { BiDollar } from "react-icons/bi";
 import { FaPlus } from "react-icons/fa";
 
 import { ligaSans } from "@/config/fonts.config";
+import { quillFormats, quillModules } from "@/config/quill.config";
 
 import Column from "@/components/Column";
+
+const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function ProductDashboard({ addProduct }) {
   const [products, setProducts] = useState([]);
@@ -149,25 +155,23 @@ export default function ProductDashboard({ addProduct }) {
               />
             </div>
 
-            <div className="flex flex-col mt-4 gap-2">
+            <div className="flex flex-col mt-4">
               <label className="text-gray-100" htmlFor="description">
                 Product description
               </label>
 
-              <textarea
-                className="border border-gray-100 rounded-md p-2 resize-none"
-                id="description"
-                name="description"
+              <QuillEditor
+                className="w-full h-[250px] mt-2 bg-white border border-black overflow-auto"
+                modules={quillModules}
+                formats={quillFormats}
                 value={productUpdated.description}
-                onChange={(e) => {
+                onChange={(descriptionValue) => {
                   setProductUpdated({
                     ...productUpdated,
-                    description: e.target.value,
+                    description: descriptionValue,
                   });
                 }}
-                rows={4}
-                placeholder="Input product description"
-              ></textarea>
+              />
             </div>
 
             <div className="flex flex-col mt-4 gap-2">

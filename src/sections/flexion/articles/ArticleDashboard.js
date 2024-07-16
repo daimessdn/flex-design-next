@@ -1,13 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+import "react-quill/dist/quill.snow.css";
 
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
 import { ligaSans } from "@/config/fonts.config";
+import { quillFormats, quillModules } from "@/config/quill.config";
 
 import Column from "@/components/Column";
+
+const QuillEditor = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function ArticleDashboard({ addArticle }) {
   const [articles, setArticles] = useState([]);
@@ -166,27 +172,21 @@ export default function ArticleDashboard({ addArticle }) {
               />
             </div>
 
-            <div className="flex flex-col mt-4 gap-2">
-              <label className="text-gray-100" htmlFor="body">
-                Article body
-              </label>
+            <div className="flex flex-col mt-4">
+              <span className="text-gray-100">Article body</span>
 
-              <textarea
-                className="border border-gray-100 rounded-md p-2"
-                type="text"
-                rows={4}
-                id="body"
-                name="body"
+              <QuillEditor
+                className="w-full h-[250px] mt-2 bg-white border border-black overflow-auto"
+                modules={quillModules}
+                formats={quillFormats}
                 value={articleUpdated.body}
-                onChange={(e) => {
+                onChange={(bodyValue) => {
                   setArticleUpdated({
                     ...articleUpdated,
-                    body: e.target.value,
+                    body: bodyValue,
                   });
                 }}
-                placeholder="Input article body"
-                required
-              ></textarea>
+              />
             </div>
 
             <div className="flex flex-row gap-2 items-center">
