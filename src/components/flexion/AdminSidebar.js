@@ -27,7 +27,7 @@ export default function AdminSidebar() {
         </li>
 
         <li>
-          <Link href="#">Featured</Link>
+          <Link href="/flexion/featured">Featured</Link>
         </li>
 
         <li>

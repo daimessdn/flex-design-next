@@ -1,18 +1,26 @@
-export const productsData = [
+export const featuredData = [
   {
     id: "1720682297790",
-    name: "FLEX Watch",
+    name: "Timeless flex",
     description: "Special watch, wearable all time",
     price: 74.2,
     category: "watches",
+    link: {
+      label: "Buy now!",
+      href: "/products/1720682297790",
+    },
     imageUrl: "/watch2.png",
   },
   {
     id: "1720682306323",
-    name: "BROWNIE Wallet",
+    name: "Men's wallet",
     description: "Flex wallet on your pocket",
     price: 27.1,
     category: "wallets",
+    link: {
+      label: "Take a look!",
+      href: "/products/1720682306323",
+    },
     imageUrl: "/wallet.png",
   },
   {
@@ -21,6 +29,10 @@ export const productsData = [
     description: "Express yourself to be dare.",
     price: 12.9,
     category: "uppers",
+    link: {
+      label: "Purchase now!",
+      href: "/products/1720771448501",
+    },
     imageUrl: "/tshirt2.png",
   },
   {
@@ -29,6 +41,10 @@ export const productsData = [
     description: "Simple, casual, professional.",
     price: 10.3,
     category: "uppers",
+    link: {
+      label: "Take a look!",
+      href: "/products/1720742925135",
+    },
     imageUrl: "/tshirt.png",
   },
 ];
@@ -39,22 +55,22 @@ export async function GET(request) {
     const category = searchParams.get("category");
 
     if (category) {
-      const productsByCategory = productsData.filter(
+      const productsByCategory = featuredData.filter(
         (p) => p.category === category.toLowerCase()
       );
 
       return Response.json({
         success: true,
         code: 200,
-        message: `Displaying products based on ${category} category.`,
+        message: `Displaying features based on ${category} category.`,
         data: productsByCategory,
       });
     } else {
       return Response.json({
         success: true,
         code: 200,
-        message: "Displaying products data...",
-        data: productsData,
+        message: "Displaying features data...",
+        data: featuredData,
       });
     }
   } catch (error) {

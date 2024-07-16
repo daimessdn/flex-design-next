@@ -68,7 +68,6 @@ export default async function ProductSection({ category }) {
               key={product.id}
               name={product.name}
               description={product.description}
-              link={product.link}
               imageUrl={product.imageUrl}
             />
           ))}

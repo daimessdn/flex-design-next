@@ -3,10 +3,10 @@ import Product from "@/components/Product";
 
 import { ligaSans } from "@/config/fonts.config";
 
-import { getProducts } from "@/functions/products.functions";
+import { getFeaturedProducts } from "@/functions/products.functions";
 
 export default async function HomeProductSection() {
-  const products = await getProducts();
+  const products = await getFeaturedProducts();
 
   return (
     <section className="py-8">

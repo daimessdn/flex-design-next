@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./Product.module.css";
 
@@ -25,7 +26,9 @@ export default function Product({ ...props }) {
       />
 
       <span className={ligaSans.className + " mt-4 " + styles.link}>
-        <a href={props.link.href}>{props.link.label}</a>
+        <Link href={props.link ? props.link.href : `/products/${props.id}`}>
+          {props.link ? props.link.label : "View details"}
+        </Link>
 
         <ArrowRightIcon className={styles.arrow} width={32} />
       </span>
