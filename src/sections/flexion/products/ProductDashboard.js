@@ -57,7 +57,7 @@ export default function ProductDashboard({ addProduct }) {
                 <th className="p-2 w-1/4">Name</th>
                 <th className="p-2 w-1/2">Description</th>
                 <th>Price</th>
-                <th></th>
+                <th>Action</th>
               </tr>
             </thead>
 

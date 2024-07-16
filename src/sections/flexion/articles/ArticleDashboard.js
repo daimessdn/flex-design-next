@@ -56,7 +56,7 @@ export default function ArticleDashboard({ addArticle }) {
                 <th className="w-1/3 p-2">Title</th>
                 <th className="w-1/5 p-2">Author</th>
                 <th className="w-1/5 p-2">Published Date</th>
-                <th></th>
+                <th>Action</th>
               </tr>
             </thead>
 

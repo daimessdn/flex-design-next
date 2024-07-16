@@ -57,7 +57,7 @@ export default function CategoryDashboard({ addCategory }) {
               <tr className="bg-green-100">
                 <th className="w-1/3 p-2"></th>
                 <th className="w-1/3 p-2">Name</th>
-                <th></th>
+                <th>Action</th>
               </tr>
             </thead>
 
