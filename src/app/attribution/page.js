@@ -1,0 +1,63 @@
+import Link from "next/link";
+
+import Footer from "@/layouts/Footer";
+import Navbar from "@/layouts/Navbar";
+
+import Container from "@/components/Container";
+import Row from "@/components/Row";
+import Column from "@/components/Column";
+
+import { ligaSans } from "@/config/fonts.config";
+
+export default function Attribution() {
+  return (
+    <>
+      <Navbar />
+
+      <section className="bg-primary text-white py-8">
+        <Container>
+          <Row>
+            <Column className={"justify-center gap-2"}>
+              <h1 className={ligaSans.className + " text-[2rem]"}>
+                Attribution
+              </h1>
+            </Column>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="py-4 min-h-screen">
+        <Container>
+          <h1 className={ligaSans.className + " text-[2rem] mb-4"}>Design</h1>
+
+          <ul className="flex flex-col gap-4 mb-4">
+            <li>
+              <a href="https://www.freepik.com/free-vector/men-s-t-shirt-different-views-with-realistic-style_29750501.htm#page=3&query=t%20shirt%20mockup&position=15&from_view=keyword&track=ais_hybrid&uuid=a0e96c27-1764-4cc7-8a00-f058187a698d">
+                Image by vector_corp
+              </a>
+              on Freepik
+            </li>
+
+            <li>
+              <a href="https://www.freepik.com/free-psd/back-view-man-blank-white-t-shirt-grey-background_89634608.htm#page=4&query=t%20shirt%20mockup&position=47&from_view=keyword&track=ais_hybrid&uuid=a0e96c27-1764-4cc7-8a00-f058187a698d">
+                Image by flatart
+              </a>{" "}
+              on Freepik
+            </li>
+
+            <li>
+              <a
+                href="https://www.pikpng.com/pngvi/mobhow_men-fashion-model-png-clipart/"
+                target="_blank"
+              >
+                Men Fashion Model Png Clipart @pikpng.com
+              </a>
+            </li>
+          </ul>
+        </Container>
+      </section>
+
+      <Footer />
+    </>
+  );
+}

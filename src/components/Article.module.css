@@ -1,0 +1,23 @@
+.article {
+    @apply bg-white2 text-black p-4 shadow-md rounded-sm flex flex-col justify-between;
+}
+
+.article img {
+    @apply scale-100 transition duration-300 ease-in-out opacity-80;
+}
+
+.article:hover img {
+    @apply scale-[110%] drop-shadow-lg opacity-100;
+}
+
+.article .link {
+    @apply flex flex-row gap-2 items-center text-[1.25rem];
+}
+
+.article .arrow {
+    @apply translate-x-0 transition duration-300 ease-in-out;
+}
+
+.article:hover .arrow {
+    @apply translate-x-2;
+}
